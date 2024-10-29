@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const materiaController = require('../controller/materiaController');
+const materiaController = require('../controllers/materiaController');
 const cache = require('./cache');
 
 // Ruta para crear una materia
