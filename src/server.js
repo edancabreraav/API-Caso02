@@ -10,11 +10,16 @@ conexionRedis
     .connect()
     .then(() => console.log("Conectado a Redis"));
 
-
-const rutaPruebaMateria = require('./routes/rutasmaterias');
+const rutasAeropuerto = require('./routes/aeropuerto');
+const rutasEmpresas = require('./routes/empresa')
+const rutasAvion = require('./routes/avion')
+const rutasPersonal = require('./routes/personal')
 
 //middlewares
 app.use(bodyParser.urlencoded({extended: true }));
 app.use(bodyParser.json());
-app.use('/api', rutaPruebaMateria);
+app.use('/aeropuerto', rutasAeropuerto)
+app.use('/empresa', rutasEmpresas)
+app.use('/avion', rutasAvion)
+app.use('/personal', rutasPersonal)
 app.listen(PORT, () => { console.log('Server en http://localhost:' + PORT) });

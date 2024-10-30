@@ -1,1 +1,7 @@
-Hola, esto es una prueba
+GETS
+http://localhost:3000
+    /aeropuerto/pistas/:minPistas
+    /empresa/operan_en/:id_aeropuerto
+    /empresa/internacional/paises_no_opera/:rfc
+    /avion/autonomia/:minAutonomia
+    /personal/piloto/ruta/:codigo
