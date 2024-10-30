@@ -14,6 +14,7 @@ exports.getEmpresasAeropuertos = async (req, res) => {
     try {
         const result = await session.run(query, { idAeropuerto });
         const empresas = result.records.map(record => record._fields[0]);
+        res.data = empresas;
         res.json({ Empresas: empresas });
     } catch (error) {
         console.error('Error al consultar empresas', error);
@@ -37,6 +38,7 @@ exports.getPaisesNoPuedeOperar = async (req, res) => {
     try {
         const result = await session.run(query, { rfc });
         const paises = result.records.map(record => record._fields[0]);
+        res.data = paises;
         res.json({ 'Países donde no puede operar': paises });
     } catch (error) {
         console.error('Error al consultar empresas', error);

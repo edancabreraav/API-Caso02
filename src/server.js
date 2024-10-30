@@ -15,9 +15,13 @@ const rutasEmpresas = require('./routes/empresa')
 const rutasAvion = require('./routes/avion')
 const rutasPersonal = require('./routes/personal')
 
+const logger = require('./routes/logger');
+
 //middlewares
 app.use(bodyParser.urlencoded({extended: true }));
 app.use(bodyParser.json());
+app.use(logger);
+
 app.use('/aeropuerto', rutasAeropuerto)
 app.use('/empresa', rutasEmpresas)
 app.use('/avion', rutasAvion)

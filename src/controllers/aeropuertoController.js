@@ -12,6 +12,7 @@ exports.getAeropuertosPistas = async (req, res) => {
     try {
         const result = await session.run(query, { minPistas });
         const aeropuerto = result.records.map(record => record._fields[0]);
+        res.data = aeropuerto;
         res.json({ Aeropuertos: aeropuerto });
     } catch (error) {
         console.error('Error al consultar pistas', error);

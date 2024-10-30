@@ -1,6 +1,5 @@
 const neo4jDriver = require('../models/neo4jDatabase');
 
-// Función para obtener la lista de empresas que trabajan en un aeropuerto específico
 exports.getAutonomia = async (req, res) => {
     const minAutonomia = parseInt(req.params.minAutonomia);
 
@@ -13,9 +12,8 @@ exports.getAutonomia = async (req, res) => {
 
     try {
         const result = await session.run(query, { minAutonomia });
-
         const aviones = result.records.map(record => record.get('n').properties);
-
+        res.data = aviones;
         res.json({ Aviones: aviones });
     } catch (error) {
         console.error('Error al consultar aviones', error);
@@ -24,5 +22,3 @@ exports.getAutonomia = async (req, res) => {
         await session.close();
     }
 };
-
-

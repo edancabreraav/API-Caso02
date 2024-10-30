@@ -15,7 +15,7 @@ exports.getRutaAsignada = async (req, res) => {
         const result = await session.run(query, { codigo });
 
         const pilotos = result.records.map(record => record._fields[0]+" "+record._fields[1]);
-
+        res.data = pilotos;
         res.json({ Pilotos: pilotos });
     } catch (error) {
         console.error('Error al consultar pilotos', error);
