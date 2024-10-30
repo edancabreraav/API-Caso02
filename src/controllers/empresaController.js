@@ -47,3 +47,27 @@ exports.getPaisesNoPuedeOperar = async (req, res) => {
         await session.close();
     }
 };
+
+// Función para obtener las empresas que tiene más de 10 aviones y que trabajan en al menos dos aeropuertos diferentes
+exports.getAvionesAeropuertos = async (req, res) => {
+    const query = `
+        MATCH (n:Empresa)-[:OPERA]->(m:Aeropuerto)
+        WHERE n.numero_aviones > 10
+        WITH n, COUNT(DISTINCT m) AS numAeropuertos
+        WHERE numAeropuertos >= 2
+        RETURN n.nombre
+    `;
+    const session = neo4jDriver.session();
+
+    try {
+        const result = await session.run(query);
+        const empresas = result.records.map(record => record._fields[0]);
+        res.data = empresas;
+        res.json({ 'Empresas': empresas });
+    } catch (error) {
+        console.error('Error al consultar empresas', error);
+        res.status(500).json({ message: 'Error al consultar empresas', error });
+    } finally {
+        await session.close();
+    }
+};
