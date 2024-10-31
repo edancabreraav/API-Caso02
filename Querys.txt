@@ -3,5 +3,22 @@ http://localhost:3000
     /aeropuerto/pistas/:minPistas
     /empresa/operan_en/:id_aeropuerto
     /empresa/internacional/paises_no_opera/:rfc
+    /empresa/diezoMasAviones/dosoMasAeropuertos
     /avion/autonomia/:minAutonomia
     /personal/piloto/ruta/:codigo
+
+POST
+http://localhost:3000
+    /personal/nuevo/apoyo
+        {
+            "id_personal":"idDePrueba",
+            "nacionalidad":"Iraní",
+            "pais_residencia":"Seul",
+            "nombre1":"Iraní",
+            "nombre2":"Iraní",
+            "direccion":"una dirección de prueba",
+            "lengua_materna":"No sé",
+            "empresa_rfc":"RFCNAC11111",
+            "idiomas_habla":["Tampocosé, menossé"],
+            "telefono":"3111231212"
+        }
