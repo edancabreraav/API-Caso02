@@ -27,7 +27,7 @@ exports.getRutaAsignada = async (req, res) => {
 };
 
 //----------POST----------
-//Función que crea un nuevo personal de apoyo y lo asigna a una empresa Nacional
+//Función que crea un nuevo personal de apoyo y lo asigna a una empresa 
 exports. postApoyo= async (req, res) => {
     const {id_personal,
            nacionalidad, 
@@ -49,7 +49,7 @@ exports. postApoyo= async (req, res) => {
                     direccion:$direccion,
                     lengua_materna: $lengua_materna})
         WITH p
-        MATCH (e: Nacional ) WHERE e.rfc=$empresa_rfc
+        MATCH (e: Empresa ) WHERE e.rfc=$empresa_rfc
         CREATE (e)<-[:APOYO {idiomas_habla:$idiomas_habla, numero_telefono:$telefono}]-(p)
         RETURN p
     `;

@@ -71,3 +71,26 @@ exports.getAvionesAeropuertos = async (req, res) => {
         await session.close();
     }
 };
+
+//Función para eliminar una empresa que ya no trabaja en un aeropuerto específico y toda la información asociada
+exports.deleteEmpresa = async (req, res) => {
+    const query = `
+        MATCH (e:Empresa)-[r:OPERA]->(a:Aeropuerto) 
+        WHERE a.id_aeropuerto=$id_aeropuerto AND e.rfc=$rfc_empresa
+        DELETE r
+        RETURN e, a
+    `;
+    const session = neo4jDriver.session();
+    const empresas = result.records.map(record => record._fields[0]);
+    res.data = empresas;
+    res.json({ 'Empresas': empresas });
+    try {
+    const result = await session(query, {id_aeropuerto, rfc_empresa})
+        
+    } catch (error) {
+        console.error('Error al eliminar empresa', error);
+        res.status(500).json({message: 'Error al eliminar empresa', error})
+    } finally {
+        await session.close()
+    }
+}

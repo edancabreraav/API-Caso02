@@ -13,4 +13,7 @@ router.get('/internacional/paises_no_opera/:rfc', /*cache,*/ empresaController.g
 //Ruta para obtener las empresas que tiene más de 10 aviones y que trabajan en al menos dos aeropuertos diferentes
 router.get('/diezoMasAviones/dosoMasAeropuertos', /*cache,*/ empresaController.getAvionesAeropuertos);
 
+//----------DELETE----------
+//Ruta para eliminar una empresa que ya no trabaja en un aeropuerto específico y toda la información asociada
+router.delete('/delete/:rfc_empresa/:id_aeropuerto', empresaController.deleteEmpresa)
 module.exports = router;
