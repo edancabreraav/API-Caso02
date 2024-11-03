@@ -1,15 +1,18 @@
 GETS
 http://localhost:3000
-    /aeropuerto/pistas/:minPistas
-    /empresa/operan_en/:id_aeropuerto
-    /empresa/internacional/paises_no_opera/:rfc
-    /empresa/diezoMasAviones/dosoMasAeropuertos
-    /avion/autonomia/:minAutonomia
-    /personal/piloto/ruta/:codigo
+1    /aeropuerto/pistas/:minPistas
+2    /empresa/operan_en/:id_aeropuerto
+3    /empresa/internacional/paises_no_opera/:rfc
+4    /empresa/diezoMasAviones/dosoMasAeropuertos
+5    /avion/autonomia/:minAutonomia
+6    /personal/piloto/ruta/:codigo
+
+
+
 
 POST
 http://localhost:3000
-    /personal/nuevo/apoyo
+1    /personal/nuevo/apoyo
         {
             "id_personal":"idDePrueba",
             "nacionalidad":"Iraní",
@@ -22,3 +25,7 @@ http://localhost:3000
             "idiomas_habla":["Tampocosé, menossé"],
             "telefono":"3111231212"
         }
+
+DELETE
+1    verificar el DELETE de empresaController
+2    verificar el DELETE de empresaController
