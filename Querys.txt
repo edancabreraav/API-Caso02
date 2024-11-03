@@ -1,8 +1,8 @@
 GETS
 http://localhost:3000
-    /aeropuerto/pistas/:minPistas
-    /empresa/operan_en/:id_aeropuerto
-    /empresa/internacional/paises_no_opera/:rfc
+    /aeropuerto/pistas/:minPistas (3)
+    /empresa/operan_en/:id_aeropuerto (33333)
+    /empresa/internacional/paises_no_opera/:rfc (RFCINT11111)
     /empresa/diezoMasAviones/dosoMasAeropuertos
     /avion/autonomia/:minAutonomia
     /personal/piloto/ruta/:codigo
@@ -22,3 +22,7 @@ http://localhost:3000
             "idiomas_habla":["Tampocosé, menossé"],
             "telefono":"3111231212"
         }
+
+DELETE
+1    verificar el DELETE de empresaController
+2    verificar el DELETE de empresaController
