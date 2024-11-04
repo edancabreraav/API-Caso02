@@ -1,15 +1,15 @@
 GETS
 http://localhost:3000
-    /aeropuerto/pistas/:minPistas (3)
-    /empresa/operan_en/:id_aeropuerto (33333)
-    /empresa/internacional/paises_no_opera/:rfc (RFCINT11111)
-    /empresa/diezoMasAviones/dosoMasAeropuertos
-    /avion/autonomia/:minAutonomia
-    /personal/piloto/ruta/:codigo
+1    /aeropuerto/pistas/:minPistas (3)                          <---Q01
+2    /empresa/operan_en/:id_aeropuerto (33333)                  <---Q02
+3    /empresa/internacional/paises_no_opera/:rfc (RFCINT11111)  <---Q05
+4    /empresa/diezoMasAviones/dosoMasAeropuertos                <---Q07
+5    /avion/autonomia/:minAutonomia                             <---Q03
+6    /personal/piloto/ruta/:codigo                              <---Q04
 
 POST
 http://localhost:3000
-    /personal/nuevo/apoyo
+1    /personal/nuevo/apoyo                                      <---Q Nueva
         {
             "id_personal":"idDePrueba",
             "nacionalidad":"Iraní",
@@ -22,10 +22,25 @@ http://localhost:3000
             "idiomas_habla":["Tampocosé, menossé"],
             "telefono":"3111231212"
         }
+2   /avion/nuevo                                                <---Q Nueva
+        {
+           "id_avion":"idPrueba", 
+           "modelo":"modeloPrueba", 
+           "millas_autonomia":20000, 
+           "numero_pasajeros":300,
+           "numero_integrantes_tripulacion":10,
+           "ultima_revision":"2024-09-30",
+           "rfc_empresa":"RFCNAC11111"
+        }
+
+PUT
+
 
 DELETE
-    /bajaPilotos/:rfc_empresa
-    /relacionAeropuerto/
+http://localhost:3000
+1    /empresa/bajaPilotos/:rfc_empresa                              <---Q012
+
+2    /empresa/relacionAeropuerto/                                   <---Q06
         {
             "id_aeropuerto":666666,
             "rfc_empresa":"RFCINT22222"

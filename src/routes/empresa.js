@@ -3,6 +3,7 @@ const router = express.Router();
 const empresaController = require('../controllers/empresaController');
 const cache = require('./cache');
 
+//----------GET----------
 // Ruta para obtener la lista de empresas que trabajan en un aeropuerto específico
 router.get('/operan_en/:id_aeropuerto', /*cache,*/ empresaController.getEmpresasAeropuertos);
 
@@ -13,6 +14,8 @@ router.get('/internacional/paises_no_opera/:rfc', /*cache,*/ empresaController.g
 //Ruta para obtener las empresas que tiene más de 10 aviones y que trabajan en al menos dos aeropuertos diferentes
 router.get('/diezoMasAviones/dosoMasAeropuertos', /*cache,*/ empresaController.getAvionesAeropuertos);
 
+
+//----------DELETE----------
 //Ruta para eliminar una empresa que ya no trabaja en un aeropuerto específico y eliminar también la información asociada
 router.delete('/relacionAeropuerto', empresaController.deleteEmpresaFromAeropuerto);
 
