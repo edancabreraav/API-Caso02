@@ -17,6 +17,6 @@ router.get('/diezoMasAviones/dosoMasAeropuertos', /*cache,*/ empresaController.g
 router.delete('/relacionAeropuerto', empresaController.deleteEmpresaFromAeropuerto);
 
 //Ruta para dar de baja a todos los pilotos de una empresa
-router.delete('/bajaPilotos', empresaController.deletePilotos);
+router.delete('/bajaPilotos/:rfc_empresa', empresaController.deletePilotos);
 
 module.exports = router;

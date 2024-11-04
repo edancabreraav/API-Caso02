@@ -24,5 +24,9 @@ http://localhost:3000
         }
 
 DELETE
-1    verificar el DELETE de empresaController
-2    verificar el DELETE de empresaController
+    /bajaPilotos/:rfc_empresa
+    /relacionAeropuerto/
+        {
+            "id_aeropuerto":666666,
+            "rfc_empresa":"RFCINT22222"
+        }

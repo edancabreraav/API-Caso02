@@ -80,8 +80,8 @@ exports.deleteEmpresaFromAeropuerto = async (req, res) => {
 
     const query = `
         MATCH (e:Empresa)-[r:OPERA]->(a:Aeropuerto) WHERE a.id_aeropuerto=$id_aeropuerto AND e.rfc=$rfc_empresa
-        RETURN e.nombre AS empresaNombre, a.nombre AS aeropuertoNombre
         DELETE r
+        RETURN e.nombre AS empresaNombre, a.nombre AS aeropuertoNombre
     `;
     const session = neo4jDriver.session();
 
@@ -107,8 +107,8 @@ exports.deletePilotos = async (req, res) => {
     const query = `
         MATCH (e:Empresa)<-[r:PILOTO]-(p:Personal)
         WHERE e.rfc = $rfc_empresa
-        RETURN p.nombre1
         DELETE r
+        RETURN p.nombre1
     `;
     const session = neo4jDriver.session();
 
@@ -116,7 +116,7 @@ exports.deletePilotos = async (req, res) => {
         const result = await session.run(query, { rfc_empresa });
         const pilotos = result.records.map(record => record._fields[0]);
         res.data = pilotos;
-        res.json({ Pilotos: pilotos });
+        res.json({ "Pilotos dados de baja": pilotos });
     } catch (error) {
         console.error('Error al eliminar los pilotos', error);
         res.status(500).json({ message: 'Error al eliminar los pilotos', error });
