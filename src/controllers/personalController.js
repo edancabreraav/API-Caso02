@@ -69,3 +69,26 @@ exports. postApoyo= async (req, res) => {
         await session.close();
     }
 };
+
+//----------PUT----------
+//Función que cambia la dirección de un personal
+exports.putDireccion= async (req, res) => {
+    const {id_personal, direccion} = req.body;
+
+    const query = `
+        MATCH (p:Personal{id_personal:$id_personal}) SET p.direccion = $direccion RETURN p.direccion
+    `;
+    const session = neo4jDriver.session();
+
+    try {
+        const result = await session.run(query, { id_personal, direccion});
+        const nuevaDireccion = result.records.map(record => record._fields[0]);
+        res.data = nuevaDireccion;
+        res.json({ 'Nueva dirección: ': nuevaDireccion });
+    } catch (error) {
+        console.error('Error al actualizar la dirección', error);
+        res.status(500).json({ message: 'Error al actualizar la dirección', error });
+    } finally {
+        await session.close();
+    }
+};

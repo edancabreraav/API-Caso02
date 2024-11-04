@@ -35,11 +35,16 @@ http://localhost:3000
 
 PUT
 http://localhost:3000
-    /aeropuerto/actualizarPistas/66666
+1    /aeropuerto/actualizarPistas/66666
      {
         "pistas":10
      }
 
+2 /personal/nuevaDireccion
+        {
+          "id_personal":"VI99999",
+          "direccion":"Nuevaaaa"   
+        }
 
 DELETE
 http://localhost:3000
