@@ -1,0 +1,308 @@
+{
+	"info": {
+		"_postman_id": "f41a52bc-b9c5-4a50-988e-cd68ae0d5f60",
+		"name": "Peticiones API-Caso02",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31312992"
+	},
+	"item": [
+		{
+			"name": "Q01",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/aeropuerto/pistas/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"aeropuerto",
+						"pistas",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Q02",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/empresa/operan_en/33333",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"empresa",
+						"operan_en",
+						"33333"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Q05",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/empresa/internacional/paises_no_opera/RFCINT11111",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"empresa",
+						"internacional",
+						"paises_no_opera",
+						"RFCINT11111"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Q07",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/empresa/diezoMasAviones/dosoMasAeropuertos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"empresa",
+						"diezoMasAviones",
+						"dosoMasAeropuertos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Q03",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/avion/autonomia/10000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"avion",
+						"autonomia",
+						"10000"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Q04",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/personal/piloto/ruta/r-001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"personal",
+						"piloto",
+						"ruta",
+						"r-001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "QNueva1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id_personal\":\"idDePrueba\",\n    \"nacionalidad\":\"Iraní\",\n    \"pais_residencia\":\"Seul\",\n    \"nombre1\":\"Iraní\",\n    \"nombre2\":\"Iraní\",\n    \"direccion\":\"una dirección de prueba\",\n    \"lengua_materna\":\"No sé\",\n    \"empresa_rfc\":\"RFCNAC11111\",\n    \"idiomas_habla\":[\"Tampocosé, menossé\"],\n    \"telefono\":\"3111231212\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/personal/nuevo/apoyo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"personal",
+						"nuevo",
+						"apoyo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "QNueva2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id_avion\":\"idPrueba\", \n    \"modelo\":\"modeloPrueba\", \n    \"millas_autonomia\":20000, \n    \"numero_pasajeros\":300,\n    \"numero_integrantes_tripulacion\":10,\n    \"ultima_revision\":\"2024-09-30\",\n    \"rfc_empresa\":\"RFCNAC11111\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/avion/nuevo/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"avion",
+						"nuevo",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "QNueva3",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"pistas\":10\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/aeropuerto/actualizarPistas/66666",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"aeropuerto",
+						"actualizarPistas",
+						"66666"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "QNueva4",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id_personal\":\"VI99999\",\n    \"direccion\":\"Nuevaaaa\"   \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/personal/nuevaDireccion",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"personal",
+						"nuevaDireccion"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Q12",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/empresa/bajaPilotos/RFCINT11111",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"empresa",
+						"bajaPilotos",
+						"RFCINT11111"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Q06",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id_aeropuerto\":66666,\n    \"rfc_empresa\":\"RFCINT22222\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/empresa/relacionAeropuerto/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"empresa",
+						"relacionAeropuerto",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

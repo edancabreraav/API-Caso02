@@ -52,6 +52,6 @@ http://localhost:3000
 
 2    /empresa/relacionAeropuerto/                                   <---Q06
         {
-            "id_aeropuerto":666666,
+            "id_aeropuerto":66666,
             "rfc_empresa":"RFCINT22222"
         }
