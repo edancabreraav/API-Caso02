@@ -638,7 +638,7 @@ CREATE
 
 ## Modelado de la base de datos
 
-![Maquetado Laboratorio Caso 02 Neo4j, BD NoSQL-Copia de Página-1.drawio (2).png](https://prod-files-secure.s3.us-west-2.amazonaws.com/f2ee27a5-dbb1-4527-81f1-7a94ce7ffd6b/d05688ef-c044-41d2-8cb2-12efd048c8e6/Maquetado_Laboratorio_Caso_02_Neo4j_BD_NoSQL-Copia_de_Pgina-1.drawio_(2).png)
+![Maquetado Laboratorio Caso 02 Neo4j, BD NoSQL-Copia de Página-1.drawio (2).png](https://drive.google.com/file/d/1PK2E78ZGHaxpAt6EHwZRgLLz-ObtcvcS/view?usp=sharing)
 
 ## Ejemplos de creación de nodos
 
