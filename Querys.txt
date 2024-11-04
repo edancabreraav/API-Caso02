@@ -34,6 +34,11 @@ http://localhost:3000
         }
 
 PUT
+http://localhost:3000
+    /aeropuerto/actualizarPistas/66666
+     {
+        "pistas":10
+     }
 
 
 DELETE
