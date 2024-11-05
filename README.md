@@ -916,3 +916,110 @@ http://localhost:3000/empresa/relacionAeropuerto/
             "rfc_empresa":"RFCINT22222"
         }
 ```
+
+## Querys
+1. Consultas:
+    1. Q00. Script del escenario de datos.
+    2. Q01. Obtener la lista de aeropuertos con más de 3 pistas
+        
+        ```bash
+        MATCH (n:Aeropuerto) WHERE n.numero_de_pistas>3 RETURN n
+        ```
+        
+    3. Q02. Obtener la lista de empresas que trabajan en un aeropuerto específico
+        
+        ```bash
+        MATCH (n:Empresa)-[r:OPERA]->(m:Aeropuerto) WHERE m.id_aeropuerto=11111
+        RETURN n
+        ```
+        
+    4. Q03. Obtener la lista de aviones con una autonomía de vuelo mayor a 5000 millas.
+        
+        ```bash
+        MATCH (n:Avion) WHERE n.millas_autonomia >5000 RETURN n
+        ```
+        
+    5. Q04. Obtener la lista de pilotos que tienen licencia para volar una ruta específica
+        
+        ```bash
+        MATCH(n:Personal)-[:ASIGNADA_PILOTO]->(m:Ruta) WHERE m.codigo="r-001" RETURN n
+        ```
+        
+    6. Q05. Obtener la lista de países en los que una empresa internacional no puede operar
+        
+        ```bash
+        #Lista de todos las empresas
+        MATCH (n:Internacional) return n.paises_no_puede_operar
+        #LIsta de una empresa en específico
+        MATCH (n:Internacional) WHERE n.rfc="RFCINT22222" return n.paises_no_puede_operar
+        ```
+        
+    7. Q06. Eliminar una empresa que ya no trabaja en un aeropuerto específico. Eliminar también la información asociada
+        
+        ```bash
+        MATCH (e:Empresa)-[r:OPERA]->(a:Aeropuerto) WHERE a.id_aeropuerto=11111 AND e.rfc="RFCNAC11111" DELETE r
+        ```
+        
+    8. Q07. Encontrar las empresas que tienen más de 10 aviones y que trabajan en al menos dos aeropuertos diferentes.
+        
+        ```bash
+        MATCH (n:Empresa)-[:OPERA]->(m:Aeropuerto)
+        WHERE n.numero_aviones > 10
+        WITH n, COUNT(DISTINCT m) AS numAeropuertos
+        WHERE numAeropuertos >= 2
+        RETURN n
+        ```
+        
+    9. Q08. Obtener la lista de rutas que son operadas por pilotos con licencia de tipo ATPL y que tienen una duración de vuelo mayor a 2 horas
+        
+        ```bash
+        MATCH (n:Ruta)
+        WHERE n.duracion.minutes > 120
+        MATCH (p:Personal)-[r:PILOTO]->(:Empresa)
+        WHERE r.licencia = "ATPL"
+        MATCH (p)-[:ASIGNADA_PILOTO]->(n)
+        RETURN n
+        
+        ```
+        
+    10. Q09. Obtener la lista de personal de tierra que tiene más de 3 certificaciones y que trabaja para empresas que tienen más de 20 aviones.
+        
+        ```bash
+        MATCH (n:Personal)-[r:TIERRA]->(e:Empresa)
+        WHERE e.numero_aviones > 20 AND size(r.certificaciones_laborales) >= 3
+        RETURN n
+        ```
+        
+    11. Q10. Encontrar las rutas que son operadas por al menos dos empresas diferentes y que tienen una escala en un aeropuerto específico.
+        
+        ```bash
+        
+        ```
+        
+    12. Q11. Agregar una nueva ruta de vuelo entre dos aeropuertos que implique tres escalas (tres nodos intermedios) entre el origen y el destino.
+        
+        ```bash
+        CREATE (r:Ruta {codigo:"r-999", origen:11111*,* destino:44444*,* duracion:duration({minutes: 240}), escala:[33333, 55555, 66666]})
+        ```
+        
+    13. Q12. Por cuestiones de política laboral una empresa requiere dar de baja del sistema a todos sus pilotos.
+        
+        ```bash
+        MATCH (e:Empresa)<-[r:PILOTO]-(:Personal)
+        WHERE e.rfc = "RFCNAC11111"
+        DELETE r
+        ```
+        
+    14. Q13. Una venta de activos implica que todos los vuelos, pilotos, personal, etc, deben pasar de una empresa a otra.
+        
+        ```bash
+        
+        ```
+        
+    15. Q14. Se requiere listar todos las rutas incluyendo las escalas que realiza cada vuelo.
+        
+        ```bash
+        MATCH (n:Ruta) RETURN n.codigo, n.escala
+        ```
+        
+    16. Q15. Un aeropuerto será remodelado por lo que el aeropuerto debe ser eliminado y todas sus operaciones deben ser reasignadas
